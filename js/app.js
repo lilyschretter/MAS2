@@ -109,7 +109,7 @@ function getStream(type) {
         .catch(function (err) {
             alert('Error: ' + err);
         });
-  var target = document.getElementById('target');
+}  var target = document.getElementById('target');
 var watchId;
 
 function appendLocation(location, verb) {
