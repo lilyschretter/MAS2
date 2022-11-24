@@ -172,4 +172,4 @@ function requestPersistence() {
       .then(persisted => {
         document.getElementById('persisted').innerHTML = persisted ? 'persisted' : 'not persisted';
       });
-  }}
+  }
