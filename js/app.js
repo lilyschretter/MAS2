@@ -262,3 +262,5 @@ async function writeFile() {
   
   target.innerHTML = 'Test content written to ' + file.name + '.';
 }
+let cache = window.caches.open(key);
+cache.put(request, response);
