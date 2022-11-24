@@ -148,3 +148,26 @@ function deviceOrientationHandler (eventData) {
   logo.style.webkitTransform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
   logo.style.MozTransform = "rotate(" + tiltLR + "deg)";
   logo.style.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)"; }
+if ('storage' in navigator && 'estimate' in navigator.storage) {
+  navigator.storage.estimate()
+    .then(estimate => {
+      document.getElementById('usage').innerHTML = estimate.usage;
+      document.getElementById('quota').innerHTML = estimate.quota;
+      document.getElementById('percent').innerHTML = (estimate.usage * 100 / estimate.quota).toFixed(0);
+    });
+}
+
+if ('storage' in navigator && 'persisted' in navigator.storage) {
+  navigator.storage.persisted()
+    .then(persisted => {
+      document.getElementById('persisted').innerHTML = persisted ? 'persisted' : 'not persisted';
+    });
+}
+
+function requestPersistence() {
+  if ('storage' in navigator && 'persist' in navigator.storage) {
+    navigator.storage.persist()
+      .then(persisted => {
+        document.getElementById('persisted').innerHTML = persisted ? 'persisted' : 'not persisted';
+      });
+  }
