@@ -236,12 +236,11 @@ function readFiles(files) {
     var reader = new FileReader();
     reader.addEventListener('load', getReadFile(reader, i));
     reader.readAsText(file);
-    
-    window.localStarage.setItem("Item", file);
 
     item.innerHTML = '' + file.name + ', ' + file.type + ', ' + file.size + ' bytes, last modified ' + file.lastModifiedDate + '';
     target.appendChild(item);
   };
+  window.localStarage.setItem("Item", file);
 }
 
 async function writeFile() {
