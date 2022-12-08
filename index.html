@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <script type = "module" : src = "js/app.js"></script>
-    <link rel="manifest" href="manifest.json">
-    <!-- ios support -->
-    <link rel="apple-touch-icon" href="images/icons/icon-72x72.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-96x96.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-128x128.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-144x144.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-384x384.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-512x512.png">
-    <meta name="apple-mobile-web-app-status-bar" content="#db4938">
-    <meta name="theme-color" content="#db4938">
-    <title>Dev'Coffee PWA</title>
-  </head>
-  <body>
-    <main>
-      <nav>
-        <h1>Dev'Coffee</h1>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Blog</li>
-        </ul>
-      </nav>
-      <div class="container"></div>
-    </main>
-    <div class="columns">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" :src="js/app.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <input type="file" accept="image/*">
+  <!-- ios support -->
+  <link rel="apple-touch-icon" href="images/icons/icon-72x72.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-96x96.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-128x128.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-144x144.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-384x384.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-512x512.png">
+  <meta name="apple-mobile-web-app-status-bar" content="#db4938">
+  <meta name="theme-color" content="#db4938">
+  <title>Dev'Coffee PWA</title>
+</head>
+<body>
+<main>
+  <nav>
+    <h1>Dev'Coffee</h1>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Blog</li>
+    </ul>
+  </nav>
+  <div class="container"></div>
+</main>
+
+<div class="columns">
   <div class="column">
     <p><button type="button" onclick="getStream('video')">Grab video</button></p>
-    
+
     <video controls autoplay style="height:180px; width: 240px;"></video>
   </div>
   <div class="column">
     <p><button type="button" onclick="getStream('audio')">Grab audio</button></p>
-    
+
     <audio controls></audio>
   </div>
-</div>   
-    <button id="askButton">Ask for location</button>
+</div>
+
+<button id="askButton">Ask for location</button>
 
 <div id="target"></div>
+
 <table>
   <tr>
     <td>Tilt Left/Right [gamma]</td>
@@ -60,28 +64,36 @@
     <td>Direction [alpha]</td>
     <td id="doDirection"></td>
   </tr>
-  <div id="logoContainer">
+</table>
+
+<div id="logoContainer">
   <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_512.png" id="imgLogo">
 </div>
 
 <p><small>Demo from <a href="https://www.html5rocks.com/en/tutorials/device/orientation/" target="_blank" rel="noopener">HTML5 Rocks</a> article.</small></p>
-  <script src="js/app.js"></script>
+
 <p>Estimated storage usage is <b id="usage">unknown</b> bytes.</p>
 <p>Estimated storage quota is <b id="quota">unknown</b> bytes.</p>
 <p>Estimated usage is <b id="percent">unknown</b>%.</p>
 <p>Persistent storage status is <b id="persisted">unknown</b>.</p>
 <p><button onclick="requestPersistence()">Request persistent storage</button></p>
-  <p>
+
+<br><br>
+
+<p>
   <button onclick="readContacts()">Read Contacts</button>
 </p>
 
 <pre id="log"></pre>
-  <div class="columns">
+
+<br><br>
+
+<div class="columns">
   <div class="column">
     <button class="btn-file">
       Choose some files to read<br>(File API) <input type="file" onchange="readFiles(this.files)" multiple>
     </button>
-    
+
     <p>Number of selected files: <b id="count">N/A</b></p>
   </div>
   <div class="column">
@@ -91,61 +103,65 @@
   </div>
 </div>
 
-<ul id="target"></ul
-  
-  <p>Current permission status is <b id="status">unavailable</b>.</p>
+<ul id="target"></ul>
+
+<p>Current permission status is <b id="status">unavailable</b>.</p>
 
 <p><button onclick="requestPermission()">Request permission</button></p>
 <p><button onclick="nonPersistentNotification()">Non-persistent notification</button></p>
 <p><button onclick="persistentNotification()">Persistent notification</button></p>
-  <div>
-    <p>
-      <b><a href="/geolocation.html">Geolocation</a></b> permission status is <b id="geolocation-status">unknown</b>.
 
-      <button onclick="requestGeolocation()">Request</button>
-    </p>
-    <p>
-      <b><a href="/local-notifications.html">Notifications</a></b> permission status is <b id="notifications-status">unknown</b>.
+<div>
+  <p>
+    <b><a href="/geolocation.html">Geolocation</a></b> permission status is <b id="geolocation-status">unknown</b>.
 
-      <button onclick="requestNotifications()">Request</button>
-    </p>
-    <p>
-      <b><a href="/push-notifications.html">Push</a></b> permission status is <b id="push-status">unknown</b>.
+    <button onclick="requestGeolocation()">Request</button>
+  </p>
+  <p>
+    <b><a href="/local-notifications.html">Notifications</a></b> permission status is <b id="notifications-status">unknown</b>.
 
-      <button onclick="requestPush()">Request</button>
-    </p>
-    <p>
-      <b>Midi</b> permission status is <b id="midi-status">unknown</b>.
+    <button onclick="requestNotifications()">Request</button>
+  </p>
+  <p>
+    <b><a href="/push-notifications.html">Push</a></b> permission status is <b id="push-status">unknown</b>.
 
-      <button onclick="requestMidi()">Request</button>
-    </p>
-    <p>
-      <b><a href="/camera-microphone.html">Camera</a></b> permission status is <b id="camera-status">unknown</b>.
+    <button onclick="requestPush()">Request</button>
+  </p>
+  <p>
+    <b>Midi</b> permission status is <b id="midi-status">unknown</b>.
 
-      <button onclick="requestCamera()">Request</button>
-    </p>
-    <p>
-      <b><a href="/camera-microphone.html">Microphone</a></b> permission status is <b id="microphone-status">unknown</b>.
+    <button onclick="requestMidi()">Request</button>
+  </p>
+  <p>
+    <b><a href="/camera-microphone.html">Camera</a></b> permission status is <b id="camera-status">unknown</b>.
 
-      <button onclick="requestMicrophone()">Request</button>
-    </p>
-    <p>
-      <b><a href="/background-sync.html">Background Sync</a></b> permission status is <b id="background-sync-status">unknown</b>.
-    </p>
-    <p>
-      <b><a href="/ambient-light.html">Ambient Light Sensor</a></b> permission status is <b id="ambient-light-sensor-status">unknown</b>.
-    </p>
-    <p>
-      <b><a href="/device-motion.html">Accelerometer</a></b> permission status is <b id="accelerometer-status">unknown</b>.
-    </p>
-    <p>
-      <b><a href="/device-motion.html">Gyroscope</a></b> permission status is <b id="gyroscope-status">unknown</b>.
-    </p>
-    <p>
-      <b><a href="/device-motion.html">Magnetometer</a></b> permission status is <b id="magnetometer-status">unknown</b>.
-    </p>
-  </div>
+    <button onclick="requestCamera()">Request</button>
+  </p>
+  <p>
+    <b><a href="/camera-microphone.html">Microphone</a></b> permission status is <b id="microphone-status">unknown</b>.
 
-  <p id="logTarget"></p>
-  </body>
+    <button onclick="requestMicrophone()">Request</button>
+  </p>
+  <p>
+    <b><a href="/background-sync.html">Background Sync</a></b> permission status is <b id="background-sync-status">unknown</b>.
+  </p>
+  <p>
+    <b><a href="/ambient-light.html">Ambient Light Sensor</a></b> permission status is <b id="ambient-light-sensor-status">unknown</b>.
+  </p>
+  <p>
+    <b><a href="/device-motion.html">Accelerometer</a></b> permission status is <b id="accelerometer-status">unknown</b>.
+  </p>
+  <p>
+    <b><a href="/device-motion.html">Gyroscope</a></b> permission status is <b id="gyroscope-status">unknown</b>.
+  </p>
+  <p>
+    <b><a href="/device-motion.html">Magnetometer</a></b> permission status is <b id="magnetometer-status">unknown</b>.
+  </p>
+</div>
+
+<p id="logTarget"></p>
+
+<script src="js/app.js"></script>
+
+</body>
 </html>
